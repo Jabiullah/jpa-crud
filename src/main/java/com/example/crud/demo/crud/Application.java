@@ -32,7 +32,15 @@ public class Application {
 			//readTheStudentByLastName(studentDAO);
 
 			//updateStudent(studentDAO);
+
+			deleteStudent(studentDAO);
 		};
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		studentDAO.deleteStudent(studentId);
+		System.out.println("Deleted the student...");
 	}
 
 	private void updateStudent(StudentDAO studentDAO) {
