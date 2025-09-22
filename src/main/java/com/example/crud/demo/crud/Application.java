@@ -23,8 +23,16 @@ public class Application {
 
 			//createMultipleStudents(studentDAO);
 
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
+
+			readAllStudent(studentDAO);
 		};
+	}
+
+	private void readAllStudent(StudentDAO studentDAO) {
+		for(int i =0;i<studentDAO.findAll().size();i++){
+			System.out.println(studentDAO.findAll().get(i));
+		}
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
@@ -68,4 +76,6 @@ public class Application {
 
 		System.out.println("Completed..");
 	}
+
+
 }
