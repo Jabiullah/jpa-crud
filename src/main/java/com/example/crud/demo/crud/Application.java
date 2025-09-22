@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class Application {
 
@@ -25,8 +27,40 @@ public class Application {
 
 			//readStudent(studentDAO);
 
-			readAllStudent(studentDAO);
+			//readAllStudent(studentDAO);
+
+			//readTheStudentByLastName(studentDAO);
+
+			//updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		// retrieve student based on ID:PK
+		int studentId = 2;
+		Student myStudent = studentDAO.findById(studentId);
+
+		// change the First Name
+		System.out.println("Changing the first Name...");
+		myStudent.setFirstName("Rolando");
+
+		// update the Student
+		studentDAO.updateStudent(myStudent);
+		System.out.println("Updated the first Name...");
+
+
+		// Display the result
+		System.out.println("Updated Student Id: "+myStudent.getId());
+	}
+
+	private void readTheStudentByLastName(StudentDAO studentDAO) {
+		//Get the list of students
+		List<Student> theStudent = studentDAO.findByLastName("Khan");
+
+		//display list of students
+		for (Student tempStudent:theStudent){
+			System.out.println(tempStudent);
+		}
 	}
 
 	private void readAllStudent(StudentDAO studentDAO) {
